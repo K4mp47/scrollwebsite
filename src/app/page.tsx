@@ -5,20 +5,18 @@ import Lenis from 'lenis';
 import { MotionValue, useScroll, useTransform, motion, useInView } from 'framer-motion';
 
 const images = [
-  "/hero.jpg",
-  "/hero2.jpg",
-  "/hero3.jpg",
-  "/hero4.jpg",
-  "/hero5.jpg",
-  "/hero6.jpg",
-  "/hero7.jpg",
-  "/hero8.jpg",
-  "/hero9.jpg",
-  "/fruits.jpg",
-  "/fruits2.jpg",
-  "/fruits3.jpg",
-  "/fruits4.jpg",
-  "/fruits5.jpg",
+  "/fruits4.png",
+  "/fruits5.png",
+  "/fruits.png",
+  "/hero2.png",
+  "/hero3.png",
+  "/hero4.png",
+  "/hero5.png",
+  "/hero6.png",
+  "/fruits.png",
+  "/hero7.png",
+  "/hero8.png",
+  "/hero9.png",
 ];
 
 export default function Home() {
@@ -87,8 +85,9 @@ export default function Home() {
   
   return (
     <main className="bg-white">
-      <div className="h-screen underline-hidden">
-        <h1 ref={title} className="text-[3rem] xl:text-[6rem] text-black font-mono font-black absolute top-1/5 left-0 pl-[3vw] uppercase md:top-1/4 md:left-0 md:w-3/5 flex flex-wrap">
+      {/* <div className="h-screen underline-hidden" style={{background: 'radial-gradient(circle at 50% 100%, #000000 60%, #0066ff, #ff66aa, #ff6600 )',}}> */}
+      <div className='h-screen underline-hidden'> 
+        <h1 ref={title} className="text-[3rem] xl:text-[6rem] text-black font-mono font-black absolute top-1/5 left-0 pl-[3vw] uppercase md:top-1/4 md:left-0 md:w-3/5 flex flex-wrap z-10">
           {titleWords.map((word, i) => (
             <span key={i} className="relative overflow-hidden mr-4 inline-block">
               <motion.span
@@ -116,9 +115,23 @@ export default function Home() {
           </svg>
         </motion.div>
         </h2>
-        
       </div>
-      <div ref={gallery} className="h-[175vh] overflow-hidden bg-white border-t border-b border-neutral-200">
+      <motion.div
+        className="lg:flex items-center pt-[80vw] lg:pt-0 justify-end h-full absolute z-2 top-0 right-0 mr-[3vw] ml-[3vw] hidden"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: [0.33, 1, 0.68, 1] }}
+      >
+        <Image
+          src="/ascii-art (3).png"
+          width={400}
+          height={400}
+          alt="ASCII Art"
+          className="rounded-lg shadow-[0_20px_30px_rgba(0,0,0,0.5)] object-cover"
+          style={{ background: "#000", filter: "" }}
+        />
+      </motion.div>
+      <div ref={gallery} className="h-[175vh] overflow-hidden bg-white ">
         <div className="relative top-[-12.5vh] h-[120vh] lg:h-[200vh] flex gap-[2vw] p-[2vw]">
           <Column images={[images[0], images[1], images[2]]} y={y} className="relative h-full min-w-full lg:w-1/4  lg:min-w-[250px] flex flex-col gap-[2vw] top-[-50%] lg:top-[-30%]" />
           <Column images={[images[3], images[4], images[5]]} y={y2} className="relative h-full w-1/4 min-w-[250px] flex flex-col gap-[2vw] top-[-70%]" />
@@ -126,6 +139,7 @@ export default function Home() {
           <Column images={[images[9], images[10], images[11]]} y={y4} className="relative h-full w-1/4 min-w-[250px] flex flex-col gap-[2vw] top-[-60%]" />
         </div>
       </div>
+      {/* <div className="h-screen flex items-center" style={{background: 'radial-gradient(circle at 50% 0%, #000000 60%, #0066ff, #ff66aa, #ff6600 )',}}> */}
       <div className="h-screen flex items-center">
         <div className="w-full flex flex-col lg:flex-row items-center justify-end">
           <div ref={contactTitle} className="text-left mb-8 lg:mb-0 w-full lg:w-1/2 mt-10 flex flex-col items-start">
@@ -152,9 +166,9 @@ export default function Home() {
               For your next project :)
             </h2>
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end pr-[3vw]">
-            <pre className="text-xs sm:text-sm text-neutral-500 font-mono scale-75 md:scale-100">
-{`                                 __
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mr-[3vw]">
+            <pre className="text-xs sm:text-sm text-black font-mono md:scale-100 h-full mx-[3vw] lg:mx-0">
+{/* {`                                 __
                      .--.      .'  \`.
                    .' . :\\    /   :  L
                    F     :\\  /   . : |        .-._
@@ -192,7 +206,7 @@ export default function Home() {
           J L        \\ \\     F \\   F |
            L\\         \\ \\   J   | J   L
           /__\\_________)_\`._)_  |_/   \\_____
-                              ""   \`"""`}
+                              ""   \`"""`} */}
 {/* {`
                       .,,uod8B8bou,,.
               ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
@@ -200,7 +214,7 @@ export default function Home() {
          !...:!TVBBBRPFT||||||||||!!^^""'   ||||
          !.......:!?|||||!!^^""'            ||||
          !.........||||                     ||||
-         !.........||||  ##                 ||||
+         !.........||||  #/'                 ||||
          !.........||||                     ||||
          !.........||||                     ||||
          !.........||||                     ||||
@@ -225,7 +239,16 @@ export default function Home() {
                   \\!988888888899fT|!^"'
                     \\!9899fT|!^"'
                       \\!^"'
-`} */}
+`}  */}
+              <video
+                src="/ascii-art-video (1).webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-lg shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+                style={{ background: "#000", filter: "" }}
+              />
             </pre>
           </div>
         </div>
@@ -240,9 +263,9 @@ const Column = ({ images, y, className }: { images: string[]; y: MotionValue<num
       style={{ y }}
     >
       {images.map((src, i) => (
-        <div key={i} className="relative h-1/3 w-full overflow-hidden">
+        <div key={i} className="relative h-1/3 w-full overflow-hidden border-1 border-neutral-700 rounded-lg shadow-[0_20px_20px_rgba(0,0,0,0.5)]">
           <div className="relative w-full h-full">
-            <Image src={`${src}`} alt={`image ${i}`} fill className="object-cover rounded-md" />
+            <Image src={`${src}`} alt={`image ${i}`} fill className="object-cover rounded-lg" />
             <div className="w-full h-full bg-neutral-200 rounded-md" />
             <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300 rounded-md" />
           </div>
